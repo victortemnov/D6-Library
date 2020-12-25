@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block navigate %}
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/author/">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/publishers/">Publishers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/friend/">Friends</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div style="margin: 40px 0 40px 0">
+    <h2 class="d-flex justify-content-center">Want to delete this author?</h2>
+</div>
+<div class="d-flex justify-content-center">
+    <form method="post" style="margin: 20px 10px">
+        {% csrf_token %}
+        <input class="p-2 btn-success rounded" type="submit" value="yes">
+    </form>
+    <form action="../" style="margin: 20px 10px">
+        <input class="p-2 btn-danger rounded" type="submit" value="no">
+    </form>
+</div>
+{% endblock %}

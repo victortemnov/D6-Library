@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block navigate %}
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/author/">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white active" href="/publishers/">Publishers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/friend/">Friends</a>
+    </li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+<ul class="list-group list-group-flush" style="margin-top: 20px;">
+    {% for publisher in publishers%}
+    <li class="list-group-item bg-dark">
+        <h5 class="text-white">{{ publisher.name }}</h5>
+        <ul class="list-group list-group-flush">
+            {% for book in publisher.publishers.all %}
+            <li class="list-group-item">{{ forloop.counter }}. {{ book.title }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

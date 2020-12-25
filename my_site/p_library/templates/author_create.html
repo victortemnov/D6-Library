@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block navigate %}
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/author/">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/publishers/">Publishers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/friend/">Friends</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<form method="post" style="margin-top: 20px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="px-5 btn-success rounded" type="submit" value="save">
+</form>
+{% endblock %}

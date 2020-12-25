@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block navigate %}
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/author/">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/publishers/">Publishers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/friend/">Friends</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<table class="table table-hover table-bordered" style="margin-top: 20px;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="text-center">#</th>
+            <th scope="col" class="text-center">FULL NAME</th>
+            <th scope="col" class="text-center">TEL</th>
+            <th scope="col" class="text-center">EMAIL</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for friend in friends %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ friend }}</td>
+                <td>{{ friend.phone }}</td>
+                <td>{{ friend.email }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

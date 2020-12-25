@@ -1,0 +1,15 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.alert-heading {
+    font-size: 35px;
+}
+
+.nav-link {
+    font-size: 20px;
+}
+
+.author__link {
+    color: deepskyblue;
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block navigate %}
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/">Books</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/author/">Authors</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/publishers/">Publishers</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/friend/">Friends</a>
+    </li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+<table class="table mt-2">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">NAME</th>
+            <th scope="col">BIRTH DATE</th>
+            <th scope="col">COUNTRY</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in object_list %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td><a class="author__link" href="{{author.id}}/">{{ author.full_name }}</a></td>
+            <td>{{ author.birth_year }}</td>
+            <td>{{ author.country }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
